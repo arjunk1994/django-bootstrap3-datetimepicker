@@ -1,13 +1,11 @@
 import json
 
-from legacy import DateTimePickerDjango110, is_legacy
-
 from bootstrap3_datetime.widgets import DateTimePicker
 
 
 def test_rendering():
     options = {"pickTime": True, "format": "YYYY-MM-DD HH:mm"}
-    widget = (DateTimePickerDjango110 if is_legacy() else DateTimePicker)(options=options)
+    widget = DateTimePicker(options=options)
     expected_output = (
         '\n    <div class="input-group date" id="_pickers">\n      <input class="form-control" name="a" type="text"'
         ' value="b"/>\n      <span class="input-group-addon">\n        <span class="glyphicon'
