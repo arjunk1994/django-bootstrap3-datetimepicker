@@ -9,7 +9,7 @@ it now has the following breaking changes:
 [grablib](https://github.com/samuelcolvin/grablib).
 * the widget no longer has js/css assets. these are left for you to deploy as you wish.
 * bug/warning fixes
-* remove support for python 2.6 and associated clean up
+* modernized support matrix for currently supported Django/Python versions
 
 ## Install
 
@@ -67,20 +67,12 @@ draw out your HTML manually.
 
 ## Requirements
 
-* Python >= 2.7
-* Django >= 1.11
+* Python >= 3.10
+* Django >= 4.2
 * Bootstrap == 3.X
 * Moment >= 2.10.6
 * bootstrap-datetimepicker >= 4.15.35
 
-### Backwards Compatibility
+### Compatibility
 
-If you want to use the picker in a Django 1.9 or 1.10 project, you can adapt by overwriting `build_attrs` with
-
-```python
-def build_attrs(self, base_attrs=None, extra_attrs=None, **kwargs):
-    if extra_attrs:
-        base_attrs.update(extra_attrs)
-    base_attrs.update(kwargs)
-    return super().build_attrs(**base_attrs)
-```
+Current test coverage targets Django 4.2, 5.1, and 5.2 on Python 3.10+.
